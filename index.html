@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>Daftar Tugas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-heading">
+      <h1>To Do List</h1>
+      <p class="subtitle">Tugas Kelompok 5.</p>
+    </header>
+
+    <section class="todo-card" aria-label="Daftar tugas">
+      <form class="entry-form" id="todo-form">
+        <span class="entry-icon" aria-hidden="true">+</span>
+        <input
+          id="new-todo"
+          type="text"
+          placeholder="Tugas baru?"
+          aria-label="Judul tugas baru"
+          autocomplete="off"
+          maxlength="300"
+        >
+      </form>
+      <ul class="todo-list" id="todo-list" aria-label="Daftar tugas"></ul>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon" aria-hidden="true">✓</span>
+        <p>Belum ada tugas. Tambahkan tugas untuk memulai.</p>
+      </div>
+      <footer class="list-footer" id="list-footer">
+        <div class="list-summary" id="list-summary" hidden>
+          <span id="todo-count" aria-live="polite"></span>
+          <button class="clear-button" id="clear-completed" type="button" hidden>Hapus yang selesai</button>
+        </div>
+        <nav class="filter-nav" aria-label="Filter daftar tugas">
+          <a class="filter-link selected" href="#" data-filter="all" aria-current="page">Semua</a>
+          <a class="filter-link" href="#active" data-filter="active">Aktif</a>
+          <a class="filter-link" href="#completed" data-filter="completed">Selesai</a>
+        </nav>
+      </footer>
+    </section>
+
+    <p class="hint">Tips: klik dua kali tugas untuk mengedit. Tekan <kbd>Enter</kbd> untuk menyimpan atau <kbd>Esc</kbd> untuk membatalkan.</p>
+  </main>
+
+  <script type="text/template" id="todo-template">
+    <button class="todo-toggle" type="button" aria-label="Tandai tugas selesai">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="m3.5 8 3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+    <label class="todo-title"></label>
+    <input class="edit-input" type="text" maxlength="300" aria-label="Ubah judul tugas">
+    <button class="delete-button" type="button" aria-label="Hapus tugas">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4.5 6h11M8 6V4.5h4V6m-6 0 .7 9h6.6l.7-9M8.5 8.5v4M11.5 8.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.7/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.6.1/backbone-min.js"></script>
+  <script src="https://unpkg.com/backbone.localstorage@1.1.16/backbone.localStorage.js"></script>
+
+  <script src="js/models/todo.js"></script>
+  <script src="js/collections/todos.js"></script>
+  <script src="js/routers/router.js"></script>
+  <script src="js/views/todo-view.js"></script>
+  <script src="js/views/app-view.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
