@@ -1,7 +1,7 @@
 :root {
   --green: #0B3D2E;
   --white: #FFFFFF;
-  --green-border: rgba(11, 61, 46, 0.12);
+  --green-border: rgba(11, 61, 46, 0.2);
   --green-soft: rgba(11, 61, 46, 0.08);
   --green-muted: rgba(11, 61, 46, 0.68);
   color-scheme: light;
@@ -73,7 +73,7 @@ h1 {
 
 .todo-card {
   overflow: hidden;
-  border: 1px solid var(--green-border);
+  border: 2px solid var(--green);
   border-radius: 18px;
   background: var(--white);
   box-shadow: 0 18px 55px rgba(11, 61, 46, 0.09), 0 2px 8px rgba(11, 61, 46, 0.03);
