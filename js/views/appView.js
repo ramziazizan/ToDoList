@@ -7,7 +7,6 @@
 
     events: {
       "submit #todo-form": "createTodo",
-      "keydown #new-todo": "handleNewTodoKeydown",
       "click .filter-link": "changeFilter",
       "click #clear-completed": "clearCompleted"
     },
@@ -23,9 +22,7 @@
       this.$count = this.$("#todo-count");
       this.$clearCompleted = this.$("#clear-completed");
 
-      this.listenTo(this.todos, "add", this.addOne);
-      this.listenTo(this.todos, "reset", this.addAll);
-      this.listenTo(this.todos, "all", this.render);
+      this.listenTo(this.todos, "add change reset remove", this.render);
       this.listenTo(this.router, "filter", this.updateFilterLinks);
 
       this.todos.fetch();
@@ -46,33 +43,10 @@
       $input.val("");
     },
 
-    handleNewTodoKeydown: function (event) {
-      if (event.key === "Enter") {
-        this.createTodo(event);
-      }
-    },
-
     changeFilter: function (event) {
       event.preventDefault();
       var filter = $(event.currentTarget).data("filter");
       this.router.navigate(filter === "all" ? "" : filter, { trigger: true });
-    },
-
-    addOne: function (todo) {
-      if (!this.todoViews[todo.cid]) {
-        this.todoViews[todo.cid] = new root.TodoApp.TodoView({
-          model: todo,
-          router: this.router
-        }).render();
-      }
-    },
-
-    addAll: function () {
-      Object.keys(this.todoViews).forEach(function (cid) {
-        this.todoViews[cid].remove();
-      }, this);
-      this.todoViews = {};
-      this.todos.each(this.addOne, this);
     },
 
     render: function () {
@@ -81,7 +55,13 @@
 
       this.todos.each(function (todo) {
         currentCids[todo.cid] = true;
-        self.addOne(todo);
+        if (!self.todoViews[todo.cid]) {
+          self.todoViews[todo.cid] = new root.TodoApp.TodoView({
+            model: todo,
+            router: self.router
+          }).render();
+        }
+
         var view = self.todoViews[todo.cid];
         self.$list.append(view.el);
         view.applyFilter();

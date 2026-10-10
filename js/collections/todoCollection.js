@@ -6,12 +6,7 @@
     model: root.TodoApp.Todo,
     localStorage: new Backbone.LocalStorage("backbone-todo-list"),
 
-    completed: function () {
-      return this.where({ completed: true });
-    },
-
-    remaining: function () {
-      return this.where({ completed: false });
-    }
+    completed: function () { return this.where({ completed: true }); },
+    remaining: function () { return this.where({ completed: false }); }
   });
 })(window, Backbone);

@@ -37,10 +37,8 @@
     applyFilter: function () {
       var filter = this.router.filter || "all";
       var completed = this.model.get("completed");
-      var visible = filter === "all" ||
-        (filter === "active" && !completed) ||
+      var visible = filter === "all" || (filter === "active" && !completed) ||
         (filter === "completed" && completed);
-
       this.$el.prop("hidden", !visible);
     },
 

@@ -8,7 +8,6 @@
     },
 
     setFilter: function (filter) {
-      filter = (filter || "").toLowerCase();
       this.filter = filter === "active" || filter === "completed" ? filter : "all";
       this.trigger("filter", this.filter);
     }

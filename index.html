@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f6fb">
+  <meta name="theme-color" content="#FFFFFF">
   <title>Daftar Tugas</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main class="app-shell">
     <section class="todo-card" aria-label="Daftar tugas">
-      <img class="todo-banner" src="images/foto-uin.jpg" alt="Universitas Islam Negeri Sumatera Utara, Kampus IV Tuntungan">
+      <img
+        class="todo-banner"
+        src="images/foto-uin.jpg"
+        alt="Universitas Islam Negeri Sumatera Utara, Kampus IV Tuntungan"
+      >
       <header class="page-heading">
         <h1>To Do List</h1>
         <p class="subtitle">Tugas Kelompok 5.</p>
@@ -45,34 +49,49 @@
       </footer>
     </section>
 
-    <p class="hint">Tips: klik dua kali tugas untuk mengedit. Tekan <kbd>Enter</kbd> untuk menyimpan atau <kbd>Esc</kbd> untuk membatalkan.</p>
+    <p class="hint">
+      Tips: klik dua kali tugas untuk mengedit. Tekan <kbd>Enter</kbd> untuk menyimpan
+      atau <kbd>Esc</kbd> untuk membatalkan.
+    </p>
   </main>
 
   <script type="text/template" id="todo-template">
     <button class="todo-toggle" type="button" aria-label="Tandai tugas selesai">
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="m3.5 8 3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path
+          d="m3.5 8 3 3 6-6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
       </svg>
     </button>
     <label class="todo-title"></label>
     <input class="edit-input" type="text" maxlength="300" aria-label="Ubah judul tugas">
     <button class="delete-button" type="button" aria-label="Hapus tugas">
       <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4.5 6h11M8 6V4.5h4V6m-6 0 .7 9h6.6l.7-9M8.5 8.5v4M11.5 8.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path
+          d="M4.5 6h11M8 6V4.5h4V6m-6 0 .7 9h6.6l.7-9M8.5 8.5v4M11.5 8.5v4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
       </svg>
     </button>
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.7/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.6.1/backbone-min.js"></script>
+  <script src="libs/jquery.js"></script>
+  <script src="libs/underscore.js"></script>
+  <script src="libs/backbone.js"></script>
   <script src="https://unpkg.com/backbone.localstorage@1.1.16/backbone.localStorage.js"></script>
 
   <script src="js/models/todo.js"></script>
-  <script src="js/collections/todos.js"></script>
-  <script src="js/routers/router.js"></script>
-  <script src="js/views/todo-view.js"></script>
-  <script src="js/views/app-view.js"></script>
+  <script src="js/collections/todoCollection.js"></script>
+  <script src="js/routers/appRouter.js"></script>
+  <script src="js/views/todoView.js"></script>
+  <script src="js/views/appView.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
