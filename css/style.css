@@ -74,6 +74,18 @@ h1 {
   box-shadow: 0 18px 55px rgba(43, 53, 94, 0.09), 0 2px 8px rgba(43, 53, 94, 0.03);
 }
 
+.todo-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.page-heading {
+  margin: 0;
+  padding: 27px 20px 24px;
+  text-align: center;
+}
+
 .entry-form {
   display: flex;
   align-items: center;
@@ -364,7 +376,7 @@ h1 {
   }
 
   .page-heading {
-    margin-bottom: 24px;
+    padding: 23px 17px 20px;
   }
 
   .entry-form {

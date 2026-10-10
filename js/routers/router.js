@@ -8,7 +8,8 @@
     },
 
     setFilter: function (filter) {
-      this.filter = filter === "Aktif" || filter === "Selesai" ? filter : "Semua";
+      filter = (filter || "").toLowerCase();
+      this.filter = filter === "active" || filter === "completed" ? filter : "all";
       this.trigger("filter", this.filter);
     }
   });

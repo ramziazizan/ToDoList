@@ -7,6 +7,8 @@
 
     events: {
       "submit #todo-form": "createTodo",
+      "keydown #new-todo": "handleNewTodoKeydown",
+      "click .filter-link": "changeFilter",
       "click #clear-completed": "clearCompleted"
     },
 
@@ -42,6 +44,18 @@
 
       this.todos.create({ title: title, completed: false });
       $input.val("");
+    },
+
+    handleNewTodoKeydown: function (event) {
+      if (event.key === "Enter") {
+        this.createTodo(event);
+      }
+    },
+
+    changeFilter: function (event) {
+      event.preventDefault();
+      var filter = $(event.currentTarget).data("filter");
+      this.router.navigate(filter === "all" ? "" : filter, { trigger: true });
     },
 
     addOne: function (todo) {
